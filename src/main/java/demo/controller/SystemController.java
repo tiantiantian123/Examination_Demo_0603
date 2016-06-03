@@ -12,8 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class SystemController extends BaseController {
 
     @RequestMapping("logout")
-    private String logout() {
-        session.invalidate();
+    private String logout() {        session.invalidate();
         return "redirect:/index.jsp";
     }
 }

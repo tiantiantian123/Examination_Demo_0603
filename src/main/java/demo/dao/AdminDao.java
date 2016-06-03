@@ -1,10 +1,8 @@
 package demo.dao;
-
 import demo.model.Admin;
 
 /**
- * Created at 221
- * 16-5-24 上午9:06.
+ * Created by Administrator on 2016/6/3.
  */
-public interface AdminDao extends GenericDao<Admin, Integer> {
+public interface AdminDao extends GenericDao<Admin,Integer>{
 }

@@ -3,9 +3,8 @@ package demo.service;
 import demo.model.Admin;
 
 /**
- * Created at 221
- * 16-5-24 上午10:53.
+ * Created by Administrator on 2016/6/3.
  */
-public interface AdminService extends GenericService<Admin, Integer> {
+public interface AdminService extends GenericService<Admin,Integer> {
     Admin login(Admin admin);
 }

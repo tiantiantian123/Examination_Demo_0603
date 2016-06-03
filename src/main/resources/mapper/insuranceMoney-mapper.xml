@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="staff">
+    <insert id="create" parameterType="staff" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO db_insurance.staff VALUES (
+        NULL,
+        #{username},
+        #{password},
+        )
+    </insert>
+    <select id="login" parameterType="String" resultType="staff">
+        SELECT *
+        FROM db_insurance.staff
+        WHERE username=#{username}
+    </select>
+    <update id="modify" parameterType="staff">
+        UPDATE db_insurance.staff
+        SET
+        username   = #{username},
+        password   = #{password}
+        WHERE id = #{id}
+    </update>
+    <select id="search" parameterType="java.lang.String" resultMap="search_map">
+        SELECT
+        s.id,
+        s.username
+        FROM db_insurance.staff
+    </select>
+</mapper>

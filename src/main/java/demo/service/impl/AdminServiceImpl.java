@@ -5,19 +5,20 @@ import demo.dao.GenericDao;
 import demo.model.Admin;
 import demo.service.AdminService;
 import demo.util.Encryptor;
-import org.jasypt.util.password.StrongPasswordEncryptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
 /**
- * Created at 221
- * 16-5-24 上午10:54.
+ * Created by Administrator on 2016/6/3.
  */
+
 @Service
 public class AdminServiceImpl extends GenericServiceImpl<Admin, Integer> implements AdminService {
+
 
     @Override
     @Autowired
@@ -30,7 +31,7 @@ public class AdminServiceImpl extends GenericServiceImpl<Admin, Integer> impleme
     public Admin login(Admin admin) {
         String plainPassword = admin.getPassword();
         AdminDao adminDao = (AdminDao) super.genericDao;
-        List<Admin> admins = adminDao.list("admin.login", admin.getEmail());
+        List<Admin> admins = adminDao.list("admin.login", admin.getUsername());
         if (admins.size() == 1) {
             admin = admins.get(0);
             String encryptedPassword = admin.getPassword();
@@ -42,3 +43,4 @@ public class AdminServiceImpl extends GenericServiceImpl<Admin, Integer> impleme
         return null;
     }
 }
+
